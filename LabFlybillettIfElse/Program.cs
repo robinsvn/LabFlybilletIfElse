@@ -42,18 +42,86 @@ namespace LabFlybillettIfElse
 
             //hvordan bruke intervaller i en if?
             //Eksempel. Du skal bare få rabatt hvis du er fra og med 20 år til og med 30 år. Det vil si at er alder større enn 19 og mindre enn 31.
-            int alder;
-            alder = 23;
-            if (alder > 19 && alder < 31)//større enn 19 og mindre enn 31. && betyr og 
+            //Console.WriteLine("Tast inn hvilken type flybillet du reiser med. 1 for Øknomi, 2 for Business, 3 for First Class.");
+            //int fullPriss = int.Parse(Console.ReadLine());
+            //int billettType = int.Parse(Console.ReadLine());
+            int fullPris;
+
+            while (true)
             {
-                Console.WriteLine("Du er et sted mellom 20 og 30 år.");
+                Console.WriteLine("Tast inn hvilken type flybillet du reiser med. 1 for Øknomi, 2 for Business, 3 for First Class.");
+                int billettType = int.Parse(Console.ReadLine());
+
+                if (billettType == 1)
+                {
+                    fullPris = 1500;
+                    Console.WriteLine("Økonomi fullpris er 1500NOK"); 
+                    break;
+                }
+                else if (billettType == 2)
+                {
+                    fullPris = 5000;
+                    Console.WriteLine("Business fullpris er 5000NOK");
+                    break;
+                }
+                else if (billettType == 3)
+                {
+                    fullPris = 12000;
+                    Console.WriteLine("Economy fullpris er 12000NOK");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Vennligst tast inn en gyldig billett type.");
+                }
             }
+
+            while (true)
+            {
+                Console.WriteLine("Tast inn din alder for å sjekke rabatt");
+                int alder = int.Parse(Console.ReadLine());
+
+                if (alder > 0 && alder < 3)//større enn 19 og mindre enn 31. && betyr og 
+                {
+                    double prisEtterRabatt = fullPris * 0.1;
+                    Console.WriteLine("Du får 90% rabatt på billetten din. Din nye pris er nå: " + prisEtterRabatt + "NOK");
+                    break;
+                }
+                else if (alder > 1 && alder < 13)
+                {
+                    double prisEtterRabatt = fullPris * 0.5;
+                    Console.WriteLine("Du får 50% rabatt på billetten din. Din nye pris er nå: " + prisEtterRabatt + "NOK");
+                    break;
+                }
+                else if (alder > 12 && alder < 19)
+                {
+                    double prisEtterRabatt = fullPris * 0.7;
+                    Console.WriteLine("Du får 30% rabatt på billetten din. Din nye pris er nå: " + prisEtterRabatt + "NOK");
+                    break;
+                }
+                else if (alder > 18 && alder < 67)
+                {
+                    Console.WriteLine("Din aldersgruppe (18 - 67) får dessverre ingen rabatt på denne turen. Din billett vil koste: " + fullPris + "NOK");
+                    break;
+                }
+                else if (alder > 66)
+                {
+                    double prisEtterRabatt = fullPris * 0.6;
+                    Console.WriteLine("Du får 40% rabatt på billetten din. Din nye pris er nå: " + prisEtterRabatt + "NOK");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Vennligst skriv inn en gyldig alder.");
+                }
+            }
+            Console.ReadLine();
 
             //les linken under for å se hvordan if -  else if og else brukes
 
-            //lesestoff: https://kodify.net/csharp/if-else/cascaded-if-statement/
+                //lesestoff: https://kodify.net/csharp/if-else/cascaded-if-statement/
 
-            //DIN KODE UNDER HER
+                //DIN KODE UNDER HER
         }
     }
 }
